@@ -4,6 +4,8 @@
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
+/TPS_cache/*
+Assets/Build
 
 # Visual Studio cache directory
 .vs/
@@ -30,6 +32,27 @@ ExportedObj/
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
+=======
+*.svd
+
+# Unity3D generated meta files
+*.pidb.meta
+
+# Unity3D Generated File On Crash Reports
+sysinfo.txt
+
+*.ide
+*.ide-wal
+
+.vs/
+/.vs/
+
+# VSCode
+Assets/VSCode*
+.vscode*
+
+# Memory Snapshot
+MemorySnapshot*
 
 # Builds
 *.apk
