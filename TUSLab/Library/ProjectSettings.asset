@@ -8,7 +8,7 @@ PlayerSettings:
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
-  defaultScreenOrientation: 4
+  defaultScreenOrientation: 3
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
@@ -617,10 +617,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 83a11cfb-cd0d-4d54-909e-ed4a177a8ac8
+  cloudProjectId: 0498c74b-92b3-486e-9961-fdcb5a9f1759
   framebufferDepthMemorylessMode: 0
   projectName: TUSLab
-  organizationId: fsblackcat2357
+  organizationId: sachiyafujita
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
