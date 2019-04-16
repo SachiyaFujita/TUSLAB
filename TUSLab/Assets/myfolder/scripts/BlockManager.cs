@@ -9,14 +9,14 @@ public class BlockManager : MonoBehaviour
 {
 
     [SerializeField]
-1:      private GameObject mPrefabBlock;
+    private GameObject mPrefabBlock;
 
     // ブロックの辺のサイズ
     private readonly float BLOCK_SIZE = 1.0f;
     private readonly float BLOCK_SIZE_HALF = 0.5f;
 
     // ブロックをListで管理
-    private List<NumberChanger> mBlockList = new List<NumberChanger>();
+    private List<BlockModel> mBlockList = new List<BlockModel>();
 
     void Start()
     {
@@ -29,7 +29,7 @@ public class BlockManager : MonoBehaviour
     public void CreateField(int gameLevel)
     {
         // 前のブロックが存在する場合は全て破棄
-        foreach (NumberChanger model in mBlockList)
+        foreach (BlockModel model in mBlockList)
         {
             Destroy(model.gameObject);
         }
@@ -60,6 +60,30 @@ public class BlockManager : MonoBehaviour
 
         // ブロックを並べる
         InstantiateBlocks(xLength, yLength);
+
+        // ブロックに爆弾を設置
+        SetBombs(bombCount);
+    }
+
+    /// <summary>
+    /// ブロックに爆弾を設置する
+    /// </summary>
+    /// <param name="bombCount">配置する爆弾の数</param>
+    private void SetBombs(int bombCount)
+    {
+        // Listをシャッフルして先頭から爆弾を設置していく
+        int blockCount = mBlockList.Count;
+        for (int i = 0; i < blockCount; i++)
+        {
+            BlockModel temp = mBlockList[i];
+            int rand = UnityEngine.Random.Range(0, blockCount);
+            mBlockList[i] = mBlockList[rand];
+            mBlockList[rand] = temp;
+        }
+        for (int i = 0; i < bombCount; i++)
+        {
+            mBlockList[i].HasBomb = true;
+        }
     }
 
     /// <summary>
@@ -75,7 +99,7 @@ public class BlockManager : MonoBehaviour
             for (int x = 0; x < xLength; x++)
             {
                 GameObject blockGo = Instantiate(mPrefabBlock, new Vector3(x * BLOCK_SIZE + BLOCK_SIZE_HALF, BLOCK_SIZE_HALF, y * BLOCK_SIZE + BLOCK_SIZE_HALF), Quaternion.identity, transform);
-                NumberChanger blockModel = blockGo.GetComponent<NumberChanger>();
+                BlockModel blockModel = blockGo.GetComponent<BlockModel>();
                 blockModel.SetPosition(x, y);
                 mBlockList.Add(blockModel);
             }
