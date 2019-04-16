@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.tuslab.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Users\\K.Nohara\\Documents\\TUSLAB\\TUSLab\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "TUSLab [Testing]"
+        }
+      }
+    }
+  ]
+}
